@@ -1,8 +1,13 @@
 # Red Panda Rafting
 
-A complete, authored woodland river game with mouse and keyboard controls. A normal run takes about ten minutes; paddling, braking and the river fork change travel time. Dialogue pauses the journey.
+A complete, authored woodland river game with mouse and keyboard controls. 
+**Vibed this for my child, so don't expect anything other than a cozy simple game about their favourite animal!**
 
-See [design.md](design.md) for the overall look, feel, goals, gameplay rules, and future direction.
+A normal run takes about ten minutes; paddling, braking and the river fork change travel time. Dialogue pauses the journey.
+
+![Red Panda Rafting screenshots showing the main menu, river gameplay, Rabbit's delivery request, and a bamboo boost pickup](docs/img.png)
+
+
 
 ## Play
 
@@ -28,6 +33,18 @@ npm run build
 Either generated HTML file can be shared on its own or hosted in a website subfolder. The build embeds all game JavaScript and CSS; the extra files under `dist/assets/` are not required by the standalone HTML.
 
 Do not edit the root `index.html` or `dist/` by hand: the next build overwrites them. If the page appears as plain text with no game, make sure you opened the built root HTML. `src/index.html` must be served through Vite.
+
+### GitHub Pages
+
+The workflow in `.github/workflows/pages.yml` tests, builds, and deploys the game whenever changes are pushed to `main`. It can also be started manually from the repository's Actions tab.
+
+One-time setup: in **Settings → Pages → Build and deployment**, choose **GitHub Actions** as the source. Pages for a private repository requires an eligible GitHub plan. The published game is a website; repository visibility and website visibility are separate settings.
+
+Once deployment succeeds, the game is available at:
+
+**https://ryerac.github.io/Red-Panda-Rafting/**
+
+Only the standalone game HTML and a `.nojekyll` marker are uploaded. The game includes its compiled JavaScript and CSS, so it needs no server runtime or separately hosted assets. Future source changes become live after the deployment workflow succeeds. Check the Actions tab for build or deployment errors.
 
 ## Controls
 
@@ -92,3 +109,4 @@ Browser tests currently use Chromium; they do not establish full cross-browser c
 Development requires Node and dependencies; the finished game does not. Sound starts muted. Touch and controller input are future work.
 
 
+Agents: See [design.md](design.md) for the overall look, feel, goals, gameplay rules, and future direction.

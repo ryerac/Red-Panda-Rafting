@@ -1,0 +1,56 @@
+name: Deploy game to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Test gameplay rules
+        run: npm test
+      - name: Build standalone game
+        run: npm run build
+      - name: Prepare public files
+        run: |
+          mkdir public-site
+          cp dist/index.html public-site/index.html
+          touch public-site/.nojekyll
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public-site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Publish game
+        id: deployment
+        uses: actions/deploy-pages@v4
