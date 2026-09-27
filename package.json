@@ -1,0 +1,17 @@
+{
+  "name": "red-panda-rafting",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && node scripts/build.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "@playwright/test": "^1.51.1"
+  }
+}
