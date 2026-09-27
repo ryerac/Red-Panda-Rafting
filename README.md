@@ -3,6 +3,8 @@
 A complete, authored woodland river game with mouse and keyboard controls. 
 **Vibed this for my child, so don't expect anything other than a cozy simple game about their favourite animal!**
 
+Play at https://ryerac.github.io/Red-Panda-Rafting/
+
 A normal run takes about ten minutes; paddling, braking and the river fork change travel time. Dialogue pauses the journey.
 
 ![Red Panda Rafting screenshots showing the main menu, river gameplay, Rabbit's delivery request, and a bamboo boost pickup](docs/img.png)
