@@ -2,6 +2,7 @@
 
 A complete, authored woodland river game with mouse and keyboard controls. 
 **Vibed this for my child, so don't expect anything other than a cozy simple game about their favourite animal!**
+The code is spaghetti, and this was a POC.
 
 Play at https://ryerac.github.io/Red-Panda-Rafting/
 
